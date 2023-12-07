@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preference_title_about">关于</string>
+    <string name="preference_title_version">版本</string>
+    <string name="preference_title_tracker">任务追踪器</string>
+
+    <string name="about_title" translatable="false">完美小鸭</string>
+    <string name="about_description">完美小鸭，让鸭鸭变得更好！</string>
+    <string name="about_button_project">访问GitHub上的项目</string>
+    <string name="about_cd_github" translatable="false">GitHub</string>
+    <string name="preference_title_app_theme">应用主题</string>
+    <string name="preference_light_theme">浅色主题</string>
+    <string name="preference_dark_theme">深色主题</string>
+    <string name="preference_system_default_theme">系统默认</string>
+    <string name="preference_title_features">功能</string>
+    <string name="preference_title_settings">设置</string>
+    <string name="preference_title_open_source">开源许可</string>
+
+</resources>

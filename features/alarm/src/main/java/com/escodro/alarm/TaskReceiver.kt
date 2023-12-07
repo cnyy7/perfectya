@@ -54,10 +54,10 @@ internal class TaskReceiver : BroadcastReceiver(), KoinComponent {
 
         const val EXTRA_TASK = "extra_task"
 
-        const val ALARM_ACTION = "com.escodro.alkaa.SET_ALARM"
+        const val ALARM_ACTION = "com.cnyy.perfectya.SET_ALARM"
 
-        const val COMPLETE_ACTION = "com.escodro.alkaa.SET_COMPLETE"
+        const val COMPLETE_ACTION = "com.cnyy.perfectya.SET_COMPLETE"
 
-        const val SNOOZE_ACTION = "com.escodro.alkaa.SNOOZE"
+        const val SNOOZE_ACTION = "com.cnyy.perfectya.SNOOZE"
     }
 }

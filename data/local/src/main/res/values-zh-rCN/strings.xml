@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="category_default_personal">个人</string>
+    <string name="category_default_work">工作</string>
+    <string name="category_default_shopping">购物清单</string>
+</resources>

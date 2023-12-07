@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="task_cd_add_task">添加任务</string>
+    <string name="task_list_header_empty">哇！所有任务都已完成！</string>
+    <string name="task_list_cd_empty_list">全部清空了</string>
+    <string name="task_list_header_error">糟糕... 这有点尴尬...</string>
+    <string name="task_list_cd_error">出了些问题</string>
+    <string name="task_detail_header_error">此任务不再可用</string>
+    <string name="task_detail_cd_error">找不到任务</string>
+
+    <string name="task_detail_cd_icon_category">分类</string>
+    <string name="task_detail_cd_icon_description">描述</string>
+    <string name="task_detail_cd_icon_alarm">提醒</string>
+    <string name="task_detail_cd_icon_remove_alarm">移除提醒</string>
+    <string name="task_detail_cd_icon_repeat_alarm">重复提醒</string>
+
+    <string name="task_detail_category_empty_list">无分类</string>
+
+    <string name="task_detail_alarm_no_alarm">无提醒</string>
+
+    <string name="task_add_save">添加</string>
+    <string name="task_add_label">任务</string>
+
+    <string name="task_snackbar_message_complete">\"%s\" 已完成</string>
+    <string name="task_snackbar_button_undo">撤销</string>
+
+    <string name="task_alarm_permission_dialog_title">提醒和闹钟</string>
+    <string name="task_alarm_permission_dialog_text">为了使提醒生效，Alkaa 需要设置提醒和闹钟的权限。如果未授予此权限，则现有的提醒也将无法生效。</string>
+    <string name="task_alarm_permission_dialog_confirm">授予权限</string>
+    <string name="task_alarm_permission_dialog_cancel">稍后</string>
+
+    <string name="task_notification_permission_dialog_title">通知</string>
+    <string name="task_notification_permission_dialog_text">为了发送通知，Alkaa 需要启动通知的权限。如果未授予此权限，则现有的提醒也将无法生效。</string>
+    <string name="task_notification_permission_dialog_confirm">授予权限</string>
+    <string name="task_notification_permission_dialog_cancel">稍后</string>
+
+    <string name="task_notification_rationale_dialog_title">通知</string>
+    <string name="task_notification_rationale_dialog_text">未授予通知权限将无法设置提醒。如果您想使用此功能，请前往应用程序设置手动授予权限。</string>
+    <string name="task_notification_rationale_dialog_confirm">前往设置</string>
+    <string name="task_notification_rationale_dialog_cancel">忽略</string>
+</resources>

@@ -115,7 +115,7 @@ private fun ContentCallToAction() {
     }
 }
 
-private const val ProjectUrl = "https://github.com/igorescodro/alkaa"
+private const val ProjectUrl = "https://github.com/cnyy7/perfectya"
 
 @Suppress("UndocumentedPublicFunction")
 @Preview

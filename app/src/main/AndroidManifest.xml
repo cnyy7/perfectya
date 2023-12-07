@@ -34,7 +34,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="com.escodro.alkaa"
+                    android:host="com.cnyy.perfectya"
                     android:scheme="app" />
             </intent-filter>
 

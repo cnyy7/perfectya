@@ -12,7 +12,7 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.escodro.alkaa"
+        applicationId = "com.cnyy.perfectya"
         versionCode = Integer.parseInt(libs.versions.version.code.get())
         versionName = libs.versions.version.name.get()
 
