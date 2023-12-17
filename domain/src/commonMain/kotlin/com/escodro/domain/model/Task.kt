@@ -27,4 +27,5 @@ data class Task(
     val completedDate: LocalDateTime? = null,
     val isRepeating: Boolean = false,
     val alarmInterval: AlarmInterval? = null,
+    val award: Int = 0,
 )

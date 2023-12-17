@@ -27,6 +27,7 @@ internal class TaskMapper(private val alarmIntervalMapper: AlarmIntervalMapper) 
             completedDate = repoTask.completedDate,
             isRepeating = repoTask.isRepeating,
             alarmInterval = repoTask.alarmInterval?.let { alarmIntervalMapper.toDomain(it) },
+            award = repoTask.award,
         )
 
     /**
@@ -58,5 +59,6 @@ internal class TaskMapper(private val alarmIntervalMapper: AlarmIntervalMapper) 
             completedDate = domainTask.completedDate,
             isRepeating = domainTask.isRepeating,
             alarmInterval = domainTask.alarmInterval?.let { alarmIntervalMapper.toRepo(it) },
+            award = domainTask.award,
         )
 }

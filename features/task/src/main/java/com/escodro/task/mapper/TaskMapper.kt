@@ -28,5 +28,6 @@ internal class TaskMapper(private val alarmIntervalMapper: AlarmIntervalMapper) 
             completedDate = domainTask.completedDate?.toCalendar(),
             isRepeating = domainTask.isRepeating,
             alarmInterval = alarmIntervalMapper.toViewData(domainTask.alarmInterval),
+            award = domainTask.award,
         )
 }

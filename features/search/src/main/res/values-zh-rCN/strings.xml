@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_cd_icon">搜索</string>
+    <string name="search_cd_empty_list">无任务</string>
+    <string name="search_header_empty">未找到任务</string>
+
+</resources>
