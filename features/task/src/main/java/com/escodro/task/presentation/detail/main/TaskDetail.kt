@@ -5,8 +5,10 @@ import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.outlined.Bookmark
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.escodro.alarmapi.AlarmPermission
@@ -68,18 +71,19 @@ private fun TaskDetailLoader(
 ) {
     val id = TaskId(taskId)
     val detailViewState by
-        remember(detailViewModel, taskId) {
-            detailViewModel.loadTaskInfo(taskId = id)
-        }.collectAsState(initial = TaskDetailState.Loading)
+    remember(detailViewModel, taskId) {
+        detailViewModel.loadTaskInfo(taskId = id)
+    }.collectAsState(initial = TaskDetailState.Loading)
 
     val categoryViewState by
-        remember(categoryViewModel, taskId) {
-            categoryViewModel.loadCategories()
-        }.collectAsState(initial = CategoryState.Loading)
+    remember(categoryViewModel, taskId) {
+        categoryViewModel.loadCategories()
+    }.collectAsState(initial = CategoryState.Loading)
 
     val taskDetailActions = TaskDetailActions(
         onTitleChange = { title -> detailViewModel.updateTitle(id, title) },
         onDescriptionChange = { desc -> detailViewModel.updateDescription(id, desc) },
+        onAwardChange = { award -> detailViewModel.updateAward(id, award) },
         onCategoryChange = { categoryId -> detailViewModel.updateCategory(id, categoryId) },
         onAlarmUpdate = { calendar -> alarmViewModel.updateAlarm(id, calendar) },
         onIntervalSelect = { interval -> alarmViewModel.setRepeating(id, interval) },
@@ -143,6 +147,10 @@ private fun TaskDetailContent(
             TaskDescriptionTextField(
                 text = task.description,
                 onDescriptionChange = actions.onDescriptionChange,
+            )
+            TaskAwardTextField(
+                award = task.award,
+                onAwardChange = actions.onAwardChange,
             )
             AlarmSelection(
                 calendar = task.dueDate,
@@ -210,6 +218,36 @@ private fun TaskDescriptionTextField(text: String?, onDescriptionChange: (String
             unfocusedContainerColor = MaterialTheme.colorScheme.surface,
             disabledContainerColor = MaterialTheme.colorScheme.surface,
         ),
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun TaskAwardTextField(award: Int?, onAwardChange: (Int) -> Unit) {
+    val textState = remember { mutableStateOf(TextFieldValue(award?.toString() ?: "10")) }
+
+    TextField(
+        modifier = Modifier.fillMaxWidth(),
+        leadingIcon = {
+            LeadingIcon(
+                imageVector = Icons.Default.Money,
+                contentDescription = R.string.task_detail_cd_icon_description,
+            )
+        },
+        value = textState.value,
+        onValueChange = { textFieldValue ->
+            onAwardChange(textFieldValue.text.trim().let {
+                if (it.isEmpty()) 0 else it.toInt()
+            })
+            textState.value = textFieldValue
+        },
+        textStyle = MaterialTheme.typography.bodyLarge,
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = MaterialTheme.colorScheme.surface,
+            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            disabledContainerColor = MaterialTheme.colorScheme.surface,
+        ),
+        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
     )
 }
 

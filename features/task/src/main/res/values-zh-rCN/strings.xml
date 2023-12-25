@@ -10,6 +10,7 @@
 
     <string name="task_detail_cd_icon_category">分类</string>
     <string name="task_detail_cd_icon_description">描述</string>
+    <string name="task_detail_cd_icon_award">奖励</string>
     <string name="task_detail_cd_icon_alarm">提醒</string>
     <string name="task_detail_cd_icon_remove_alarm">移除提醒</string>
     <string name="task_detail_cd_icon_repeat_alarm">重复提醒</string>
@@ -20,6 +21,7 @@
 
     <string name="task_add_save">添加</string>
     <string name="task_add_label">任务</string>
+    <string name="task_add_award">奖励</string>
 
     <string name="task_snackbar_message_complete">\"%s\" 已完成</string>
     <string name="task_snackbar_button_undo">撤销</string>

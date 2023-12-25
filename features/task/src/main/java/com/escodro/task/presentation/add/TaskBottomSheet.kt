@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -22,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.escodro.categoryapi.presentation.CategoryListViewModel
@@ -57,6 +59,7 @@ internal fun AddTaskLoader(
         verticalArrangement = Arrangement.SpaceAround,
     ) {
         var taskInputText by rememberSaveable { mutableStateOf("") }
+        var taskInputAward by rememberSaveable { mutableIntStateOf(10) }
         val categoryState by remember(categoryViewModel) {
             categoryViewModel
         }.loadCategories().collectAsState(initial = CategoryState.Empty)
@@ -77,6 +80,16 @@ internal fun AddTaskLoader(
                 .focusRequester(focusRequester),
         )
 
+        AlkaaInputTextField(
+            label = stringResource(id = R.string.task_add_award),
+            text = taskInputAward.toString(),
+            onTextChange = { text -> taskInputAward = text.toInt() },
+            modifier = Modifier
+                .fillMaxWidth()
+                .focusRequester(focusRequester),
+            keyboardType = KeyboardType.Number,
+        )
+
         CategorySelection(
             state = categoryState,
             currentCategory = currentCategory?.value,
@@ -88,7 +101,7 @@ internal fun AddTaskLoader(
                 .fillMaxWidth()
                 .height(48.dp),
             onClick = {
-                addTaskViewModel.addTask(taskInputText, currentCategory)
+                addTaskViewModel.addTask(taskInputText, taskInputAward, currentCategory)
                 taskInputText = ""
                 onHideBottomSheet()
             },

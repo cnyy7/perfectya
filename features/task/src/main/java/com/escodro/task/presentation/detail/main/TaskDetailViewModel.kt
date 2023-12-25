@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.escodro.coroutines.AppCoroutineScope
 import com.escodro.coroutines.CoroutineDebouncer
 import com.escodro.domain.usecase.task.LoadTask
+import com.escodro.domain.usecase.task.UpdateTaskAward
 import com.escodro.domain.usecase.task.UpdateTaskCategory
 import com.escodro.domain.usecase.task.UpdateTaskDescription
 import com.escodro.domain.usecase.task.UpdateTaskTitle
@@ -17,6 +18,7 @@ internal class TaskDetailViewModel(
     private val loadTaskUseCase: LoadTask,
     private val updateTaskTitle: UpdateTaskTitle,
     private val updateTaskDescription: UpdateTaskDescription,
+    private val updateTaskAward: UpdateTaskAward,
     private val updateTaskCategory: UpdateTaskCategory,
     private val coroutineDebouncer: CoroutineDebouncer,
     private val applicationScope: AppCoroutineScope,
@@ -42,6 +44,10 @@ internal class TaskDetailViewModel(
     fun updateDescription(taskId: TaskId, description: String) =
         coroutineDebouncer(coroutineScope = viewModelScope) {
             updateTaskDescription(taskId.value, description)
+        }
+    fun updateAward(taskId: TaskId, award: Int) =
+        coroutineDebouncer(coroutineScope = viewModelScope) {
+            updateTaskAward(taskId.value, award)
         }
 
     fun updateCategory(taskId: TaskId, categoryId: CategoryId) =

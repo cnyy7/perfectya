@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
@@ -138,6 +139,7 @@ fun AlkaaInputTextField(
     text: String,
     onTextChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    keyboardType: KeyboardType = KeyboardType.Text,
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -145,7 +147,7 @@ fun AlkaaInputTextField(
         label = { Text(text = label) },
         value = text,
         onValueChange = onTextChange,
-        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done, keyboardType = keyboardType),
         keyboardActions = KeyboardActions(onDone = { keyboardController?.hide() }),
         modifier = modifier,
     )
